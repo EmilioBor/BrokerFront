@@ -1,6 +1,7 @@
-import logo from './logo.svg';
+//import logo from './logo.svg';
 import './App.css';
 import { Listar } from './components/Listar';
+import { useState } from 'react';
 
 function App() {
   const [apiData, setApiData] = useState([]);
