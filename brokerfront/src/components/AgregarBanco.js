@@ -5,7 +5,6 @@ import axios from 'axios';
 export const AgregarBanco = ({upload}) => {
   const [banco, setBanco] = useState({
     norazonSocial: '',
-    cuenta: '',
     numero: '',
   });
   const [mensaje, setMensaje] = useState('');
