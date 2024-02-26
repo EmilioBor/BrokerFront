@@ -80,24 +80,6 @@ export const AgregarBanco = ({upload}) => {
               </div>
             </div>
           </div>
-
-          <div className="card-body">
-            <h5 className="card-title"></h5>
-            <div id="card-content">
-              <div className="mb-3">
-                <label htmlFor="año" className="form-label">
-                Cuenta
-                </label>
-                <input
-                  type="text"
-                  className="form-control"
-                  name="cuenta"
-                  id="cuenta"
-                  placeholder="Ingrese cuenta"
-                  onChange={(e) => setBanco({ ...banco, cuenta: e.target.value })}/>
-              </div>
-            </div>
-          </div>
           
           <button className="btn btn-success" onClick={agregarBanco}>
             Agregar
