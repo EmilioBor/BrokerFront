@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 
-export const Listar = ({apiData}) => {
+export const ListarTransacciones = ({apiData}) => {
 
     const [transacciones,setTransacciones] = useState([]);
 

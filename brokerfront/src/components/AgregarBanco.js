@@ -9,6 +9,7 @@ export const AgregarBanco = ({upload}) => {
     numero: '',
   });
   const [mensaje, setMensaje] = useState('');
+  const [mensajeTipo, setMensajeTipo] = useState('success'); // Agrega estado para manejar el tipo de mensaje
  
 
   const agregarBanco = async () => {
@@ -17,6 +18,7 @@ export const AgregarBanco = ({upload}) => {
       upload(respuesta.data);
 
       if (respuesta.status === 201) {
+        setMensajeTipo('success'); // Establecer tipo de mensaje a éxito
         setMensaje('Agregado exitoso.');
         setTimeout(() => {
           setMensaje('');
@@ -24,6 +26,7 @@ export const AgregarBanco = ({upload}) => {
       }
     }
     catch {
+      setMensajeTipo('error'); // Establecer tipo de mensaje a error
       setMensaje('Error al agregar.');
       setTimeout(() => {
         setMensaje('');
@@ -33,11 +36,15 @@ export const AgregarBanco = ({upload}) => {
 
 
   return (
+  /*  <div>
+    <h1>Hola desde el componente de prueba</h1>
+    <p>Este es un componente de prueba muy sencillo.</p>
+  </div> */
     <div className="container">
       <div className='row'>
         <div className="col-md-6 offset-md-3 agregar">
           <div id="titulo">Agregar Banco</div>
-          <div className="notificacion">{mensaje}</div>
+          <div className={`notificacion ${mensajeTipo === 'success' ? 'success' : 'error'}`}>{mensaje}</div>
           <div className="card-body">
             <h5 className="card-title"></h5>
             <div id="card-content">
@@ -87,7 +94,7 @@ export const AgregarBanco = ({upload}) => {
                   name="cuenta"
                   id="cuenta"
                   placeholder="Ingrese cuenta"
-                  onChange={(e) => setBanco({ ...cuenta, cuenta: e.target.value })}/>
+                  onChange={(e) => setBanco({ ...banco, cuenta: e.target.value })}/>
               </div>
             </div>
           </div>
@@ -98,5 +105,6 @@ export const AgregarBanco = ({upload}) => {
         </div>
       </div>
     </div>
+ 
   );
 };
