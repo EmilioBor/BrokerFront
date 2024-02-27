@@ -16,7 +16,7 @@ export const ListarTransacciones = ({ apiData }) => {
     const handleTransaccionClick = async (transaccion) => {
         try {
             // Aquí realizamos la solicitud al endpoint del backend para obtener los registros asociados a la transacción
-            const response = await axios.get(`https://localhost:7033/WebApi/RegistroEstado/${transaccion.id}`);
+            const response = await axios.get(`https://localhost:7033/WebApi/RegistroEstado/listarRegistrosPorTransaccion/${transaccion.numero}`);
             setRegistros(response.data);
             // Abrir el modal
             setModalAbierto(true);
@@ -43,12 +43,13 @@ export const ListarTransacciones = ({ apiData }) => {
                             <th scope="col">ID</th>
                             <th scope="col">Monto</th>
                             <th scope="col">FechaHora</th>
+                            <th scope='col'>Numero</th>
                             <th scope="col">Tipo Transaccion</th>
                             <th scope="col">Validacion Estado</th>
                             <th scope="col">Aceptado Estado</th>
                             <th scope="col">Cuenta Origen</th>
                             <th scope="col">Cuenta Destino</th>
-                            <th scope="col">Registroestado</th>
+                            {/* <th scope="col">Registroestado</th> */}
                             <th scope="col">Acción</th>
                         </tr>
                     </thead>
@@ -58,12 +59,13 @@ export const ListarTransacciones = ({ apiData }) => {
                                 <td>{transaccion.id}</td>
                                 <td>{transaccion.monto}</td>
                                 <td>{transaccion.fechaHora}</td>
-                                <td>{transaccion.idTipo}</td>
-                                <td>{transaccion.idValidacionEstado}</td>
-                                <td>{transaccion.idAceptadoEstado}</td>
-                                <td>{transaccion.idCuentaOrigen}</td>
-                                <td>{transaccion.idCuentaDestino}</td>
-                                <td>{transaccion.registroEstado}</td>
+                                <td>{transaccion.numero}</td>
+                                <td>{transaccion.nombreTipo}</td>
+                                <td>{transaccion.nombreValidacionEstado}</td>
+                                <td>{transaccion.nombreAceptadoEstado}</td>
+                                <td>{transaccion.nombreCuentaOrigen}</td>
+                                <td>{transaccion.nombreCuentaDestino}</td>
+                                {/* <td>{transaccion.NombreRegistroEstado}</td> */}
                                 <td>
                                 <button onClick={() => handleTransaccionClick(transaccion)} className="btn btn-info">Ver Registros Estado</button>
                                 </td>

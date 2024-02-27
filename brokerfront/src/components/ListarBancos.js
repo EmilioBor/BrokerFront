@@ -18,18 +18,23 @@ export const ListarBancos = ({apiData}) => {
             <table className="table table-hover table-dark">
               <thead>
                 <tr>
+                  <th scope='col'>ID</th>
                   <th scope="col">Razon Social</th>
-                  <th scope="col">Numero</th>
                   <th scope="col">Estado</th>    
+                  <th scope="col">Numero</th>
+                  <th scope="col">Editar</th>
                 </tr>
               </thead>
               <tbody className='Tabla'>
               {bancos?.map((banco) => (  
-                <tr key={bancos.id}> 
-                  <td>{banco.Id}</td>
-                  <td>{banco.RazonSocial}</td>
-                  <td>{bancos.IdEstadoBanco}</td>
-                  <td>{bancos.NombreEstadoBancoNavigation}</td>
+                <tr key={banco.id}> 
+                  <td>{banco.id}</td>
+                  <td>{banco.razonSocial}</td>
+                  <td>{banco.nombreEstadoBanco}</td>
+                  <td>{banco.numero}</td>
+                  <td> 
+                    {/* <button onClick={EditarEstadoBanco()}></button> */}
+                  </td>
                 </tr>
                 ))}
               </tbody>
