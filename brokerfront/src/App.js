@@ -1,9 +1,13 @@
 //import logo from './logo.svg';
 import './App.css';
-import { ListarTransacciones } from './components/ListarTransacciones';
-import { ListarBancos } from './components/ListarBancos';
+import { Routes, Route } from 'react-router-dom';
+import Layout from "./pages/Layout";
+import Inicio from "./pages/Inicio";
+import ListarTransacciones from './pages/ListarTransacciones';
+import ListarBancos from './pages/ListarBancos';
+import AgregarBanco from './pages/AgregarBanco'
 import { useState } from 'react';
-import { AgregarBanco } from './components/AgregarBanco';
+import Default from "./pages/Default";
 
 function App() {
   const [apiData, setApiData] = useState([]);
@@ -12,17 +16,24 @@ function App() {
     // Aquí puedes realizar cualquier acción adicional si es necesario
     // Luego, actualiza el estado apiData para desencadenar la recarga de la tabla.
     setApiData([...apiData, data]);
-  };
-  return (
-    <div className="App">
-      <header className="App-header">
-        <h1 id="titulo-pagina">API Broker</h1>
-        <ListarTransacciones  apiData={apiData}/>
-        <AgregarBanco upload={handleDataUpload}/>
-        <ListarBancos  apiData={apiData}/>
-      </header>
-    </div>
-  );
+  }
+
+    return (
+      <div className="App">
+          <br></br>
+          <h1 id="titulo-pagina">Broker de Bancos</h1>
+          <br></br>
+            <Routes>
+              <Route path="/" element={<Layout />}>
+                <Route path="inicio" element={<Inicio />} />
+                <Route path="bancos" element={<ListarBancos apiData={apiData} />} />
+                <Route path="transacciones" element={<ListarTransacciones apiData={apiData} />} />
+                <Route path="default" element={<Default />} />
+                <Route path="AñadirBanco" element={<AgregarBanco upload={handleDataUpload}/>} />
+              </Route>
+            </Routes>
+      </div>
+    ); 
 }
 
 export default App;
