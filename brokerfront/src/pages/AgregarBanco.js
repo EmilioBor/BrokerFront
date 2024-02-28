@@ -66,7 +66,7 @@ export const AgregarBanco = ({upload}) => {
             <div id="card-content">
               <div className="mb-3">
                 <label htmlFor="numero" className="form-label">
-                  Numero
+                  Número
                 </label>
                 <input
                   type="text"
