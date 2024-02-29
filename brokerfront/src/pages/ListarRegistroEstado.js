@@ -3,12 +3,12 @@ import axios from "axios";
 
 export const ListarRegistroEstado = ({ apiData }) => {
   const [registros, setRegistros] = useState([]);
-  const [numeroTransaccion, setNumeroTransaccion] = useState("");
+  const [numeroTransaccion, setNumeroTransaccion] = useState([]);
 
   const buscarRegistros = () => {
     axios
       .get(
-        "https://localhost:7033/WebApi/RegistroEstado/listarRegistrosPorTransaccion/777"
+        `https://localhost:7033/WebApi/RegistroEstado/listarRegistrosPorTransaccion/${numeroTransaccion}`
       )
       .then((response) => {
         setRegistros(response.data);
@@ -17,10 +17,6 @@ export const ListarRegistroEstado = ({ apiData }) => {
         console.error(error);
       });
   };
-  useEffect(() => {
-    // Aquí puedes llamar a la función de búsqueda si deseas que se realice automáticamente al cargar la página
-  }, [apiData]); // Asegúrate de proporcionar las dependencias correctas aquí según tus necesidades
-
   return (
     <div>
       <h2>Registros de la transacción seleccionada</h2>
@@ -30,7 +26,10 @@ export const ListarRegistroEstado = ({ apiData }) => {
         onChange={(e) => setNumeroTransaccion(e.target.value)}
         placeholder="Número de transacción"
       />
-      <button className="btn btn-info" onClick={buscarRegistros}>
+      <button
+        className="btn btn-info"
+        onClick={buscarRegistros(numeroTransaccion)}
+      >
         Obtener Registros
       </button>
       <table className="table table-hover table-dark">
