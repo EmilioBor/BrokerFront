@@ -16,7 +16,7 @@ export const ListarTransacciones = ({ apiData }) => {
     const handleTransaccionClick = async (transaccion) => {
         try {
             // Aquí realizamos la solicitud al endpoint del backend para obtener los registros asociados a la transacción
-            const response = await axios.get(`https://localhost:7033/WebApi/RegistroEstado/listarRegistrosPorTransaccion/${transaccion.numero}`);
+            const response = await axios.get('https://localhost:7033/WebApi/RegistroEstado/listarRegistrosPorTransaccion/${transaccion.numero}');
             setRegistros(response.data);
             // Abrir el modal
             setModalAbierto(true);
