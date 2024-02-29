@@ -22,16 +22,18 @@ useEffect(() => {
         <div>
             <h2>Registros de la transacción seleccionada</h2>
             <input
+                
                 type="text"
                 value={numeroTransaccion}
                 onChange={(e) => setNumeroTransaccion(e.target.value)}
                 placeholder="Número de transacción"
             />
-            <button onClick={buscarRegistros}>Obtener Registros</button>
+            <button className="btn btn-info" onClick={buscarRegistros}>Obtener Registros</button>
             <table className="table table-hover table-dark">
                 <thead>
                     <tr>
                         <th scope="col">Fecha y Hora</th>
+                        <th scope="col">Numero Transaccion</th>
                         <th scope="col">Estado de validación</th>
                         <th scope="col">Esto Aceptada</th>
                     </tr>
@@ -40,8 +42,9 @@ useEffect(() => {
                     {registros?.map((registro) => (
                         <tr key={registro.id}>
                             <td>{registro.fechaHora}</td>
-                            <td>{registro.idValidacionEstado}</td>
-                            <td>{registro.idAceptadoEstado}</td>
+                            <td>{registro.nombreTransaccion}</td>
+                            <td>{registro.nombreValidadoEstado}</td>
+                            <td>{registro.nombreAceptadoEstado}</td>
                         </tr>
                     ))}
                 </tbody>
