@@ -6,6 +6,7 @@ import Inicio from "./pages/Inicio";
 import ListarTransacciones from './pages/ListarTransacciones';
 import ListarBancos from './pages/ListarBancos';
 import AgregarBanco from './pages/AgregarBanco'
+import ListarRegistroEstado from './pages/ListarRegistroEstado'
 import { useState } from 'react';
 import Default from "./pages/Default";
 
@@ -30,6 +31,7 @@ function App() {
                 <Route path="transacciones" element={<ListarTransacciones apiData={apiData} />} />
                 <Route path="default" element={<Default />} />
                 <Route path="AñadirBanco" element={<AgregarBanco upload={handleDataUpload}/>} />
+                <Route path="registroEstado" element={<ListarRegistroEstado apiData={apiData} />} />
               </Route>
             </Routes>
       </div>

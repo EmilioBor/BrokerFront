@@ -14,6 +14,9 @@ const Layout = () =>{
                 <li>
                     <Link to="/transacciones">Transacciones</Link>
                 </li>
+                <li>
+                    <Link to="/registroEstado">Registros de Estado</Link>
+                </li>
             </ul>
         </nav>
         <hr />
