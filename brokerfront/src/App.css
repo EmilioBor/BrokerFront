@@ -32,9 +32,9 @@
   text-decoration: none;
   display: block;
   color: rgb(0, 0, 0);
-  font-size: 40px;
-  padding: 5px 190px;
-  margin-left: 38px;
+  font-size: 20px;
+  padding: 5px 120px;
+  margin-left: 28px;
   transition: .2s;
 }
 
@@ -171,6 +171,6 @@
 }
 
 p{
-  font-size: 35px;
+  font-size: 15px;
   text-align: center;
 }
