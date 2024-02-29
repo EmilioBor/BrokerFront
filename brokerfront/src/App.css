@@ -32,8 +32,8 @@
   text-decoration: none;
   display: block;
   color: rgb(0, 0, 0);
-  font-size: 20px;
-  padding: 5px 120px;
+  font-size: 40px;
+  padding: 5px 190px;
   margin-left: 38px;
   transition: .2s;
 }
@@ -168,4 +168,9 @@
 
 #titulo-agregar {
   text-decoration: underline;
+}
+
+p{
+  font-size: 35px;
+  text-align: center;
 }

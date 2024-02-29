@@ -53,7 +53,7 @@ export const ListarTransacciones = ({ apiData }) => {
                             <th scope="col">Cuenta Origen</th>
                             <th scope="col">Cuenta Destino</th>
                             {/* <th scope="col">Registroestado</th> */}
-                            <th scope="col">Acción</th>
+                            
                         </tr>
                     </thead>
                     <tbody className='Tabla'>
@@ -69,9 +69,7 @@ export const ListarTransacciones = ({ apiData }) => {
                                 <td>{transaccion.nombreCuentaOrigen}</td>
                                 <td>{transaccion.nombreCuentaDestino}</td>
                                 {/* <td>{transaccion.NombreRegistroEstado}</td> */}
-                                <td>
-                                <button onClick={() => handleTransaccionClick(transaccion)} className="btn btn-info">Ver Registros Estado</button>
-                                </td>
+                                
                             </tr>
                         ))}
                     </tbody>
